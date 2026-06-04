@@ -37,7 +37,7 @@ export default function Footer() {
       </Link>
     </li>
     <li>
-      <Link to="/" className="transition hover:text-white">
+      <Link to="/our-process" className="transition hover:text-white">
         Contributions
       </Link>
     </li>
