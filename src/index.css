@@ -1,4 +1,23 @@
 @import "tailwindcss";
+
+/* Theme variables (safe, minimal): uses the `dark` class on <html> */
+:root {
+  --site-bg: #ffffff;
+  --site-text: #0f172a;
+  --muted-text: #475569;
+}
+
+.dark {
+  --site-bg: #0b1220;
+  --site-text: #e6eef8;
+  --muted-text: #9fb0c8;
+}
+
+html, body {
+  background-color: var(--site-bg);
+  color: var(--site-text);
+}
+
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -16,3 +35,116 @@
 .float-card {
   animation: float 4s ease-in-out infinite;
 }
+
+/* Dark mode styling for float cards */
+.dark .float-card {
+  background-color: rgba(30, 41, 59, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark .float-card h3,
+.dark .float-card p {
+  color: var(--site-text) !important;
+}
+
+/* White cards get vibrant blue/indigo color in dark mode */
+.dark .float-card.bg-white {
+  background: linear-gradient(135deg, #f8b3f1 0%, #f163e8 100%) !important;
+  border: 1px solid rgba(99, 102, 241, 0.3) !important;
+}
+
+.dark .float-card.bg-white h3,
+.dark .float-card.bg-white p {
+  color: #ffffff !important;
+}
+
+/* Keep green cards bright in dark mode */
+.dark .float-card.bg-green-500 {
+  background-color: #16a34a !important;
+  color: white !important;
+}
+
+.dark .float-card.bg-green-500 h3,
+.dark .float-card.bg-green-500 p {
+  color: white !important;
+}
+
+
+/* Lightly override common Tailwind backgrounds and text in dark mode.
+   This keeps changes local and reversible while making the site visibly dark. */
+.dark .bg-white { background-color: rgba(255,255,255,0.03) !important; }
+.dark .bg-slate-50 { background-color: rgba(255,255,255,0.02) !important; }
+.dark .bg-slate-900 { background-color: #0b1220 !important; }
+.dark .bg-\[\#eef5f8\] { background-color: rgba(255,255,255,0.02) !important; }
+
+.dark .border-slate-200 { border-color: rgba(255,255,255,0.06) !important; }
+.dark .text-slate-900 { color: var(--site-text) !important; }
+.dark .text-slate-700, .dark .text-gray-600, .dark .text-slate-600 { color: var(--muted-text) !important; }
+
+/* Keep primary colored buttons readable in dark mode by slightly adjusting contrast */
+.dark .bg-green-500 { filter: brightness(0.95); }
+.dark .bg-green-300 { filter: brightness(0.95); }
+.dark .bg-purple-600 { filter: brightness(0.95); }
+
+/* Header and nav backgrounds - solid (not transparent) on scroll */
+header {
+  background-color: #ffffff !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+header.bg-white {
+  background-color: #ffffff !important;
+}
+
+.dark header, .dark header.bg-white {
+  background-color: #0b1220 !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.dark nav.bg-white {
+  background-color: #0b1220 !important;
+}
+
+nav {
+  background-color: inherit !important;
+}
+
+/* Form fields: ensure text and placeholders are readable in light mode */
+input::placeholder, textarea::placeholder, select::placeholder {
+  color: #9ca3af !important;
+  opacity: 1 !important;
+}
+
+/* Form fields: ensure text and placeholders are readable in dark mode */
+.dark input, .dark textarea, .dark select {
+  color: var(--site-text) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.dark input::placeholder, .dark textarea::placeholder {
+  color: var(--muted-text) !important;
+  opacity: 1 !important;
+}
+.dark input:focus, .dark textarea:focus, .dark select:focus {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(34, 197, 94, 0.6) !important;
+  outline: none !important;
+}
+
+/* Form container (Send Message box) should also darken */
+.dark form {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+.dark .shadow-xl {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Gradient overrides for 'Our Process' gradient utilities */
+.dark .from-slate-50 { --tw-gradient-from: #0b1220; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, #0b1220); }
+.dark .via-white { --tw-gradient-stops: var(--tw-gradient-from), #0b1220, var(--tw-gradient-to, #0b1220); }
+.dark .to-slate-100 { --tw-gradient-to: #0b1220; }
+
+/* Also ensure the general gradient utility uses the vars */
+.dark .bg-linear-to-b { background-image: linear-gradient(var(--tw-gradient-stops)) !important; }
+

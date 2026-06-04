@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/icons/logo.png";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,11 +18,14 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden gap-8 md:flex">
+        <nav className="hidden gap-8 md:flex items-center">
           <Link to="/" className="text-slate-700 hover:text-green-600">Home</Link>
           <Link to="/services" className="text-slate-700 hover:text-green-600">Services</Link>
           <Link to="/our-process" className="text-slate-700 hover:text-green-600">Our Process</Link>
           <Link to="/contact" className="text-slate-700 hover:text-green-600">Contact</Link>
+          <div className="ml-4">
+            <ThemeToggle />
+          </div>
         </nav>
 
         {/* Hamburger Menu Button */}
@@ -68,6 +72,9 @@ export default function Header() {
             >
               Contact
             </Link>
+            <div className="pt-2">
+              <ThemeToggle />
+            </div>
           </div>
         </nav>
       )}
