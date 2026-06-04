@@ -40,19 +40,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Credits section */}
-        <div className="mt-12 rounded-2xl border border-slate-800 bg-slate-950/60 p-6 text-center text-slate-300 shadow-inner">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-green-400">
-            Credits
-          </p>
-          <p className="mt-3 text-sm sm:text-base">
-            Designed with care for modern web experiences. Built with open-source technology
-            and a focus on performance, accessibility, and usability.
-          </p>
-          <p className="mt-4 text-sm text-slate-400 sm:text-base">
-            EOS Globe • Grow Big Technologies
-          </p>
-        </div>
+        
+       
       </div>
 
       <div className="border-t border-slate-800 py-6 text-center text-slate-500">
